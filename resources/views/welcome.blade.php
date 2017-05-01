@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Excel Demo</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,6 +62,25 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .alert {
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                font-family: helvetica;
+            }
+
+            .alert-danger {
+                background-color: #f2dede;
+                border-color: #ebccd1;
+            }
+
+            .alert-success {
+                background-color: #dff0d8;
+                border-color: #d6e9c6;
+            }
+
         </style>
     </head>
     <body>
@@ -78,16 +97,20 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
+            @if (Session::has('error'))
+                <div class="alert alert-danger">{{ Session::get('error') }}</div>
+            @endif
+            @if (Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+            @endif
+
+                <div class="title m-b-md">
+                    Laravel Demo
+                </div>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a class="button" href="{{ url('/excel-into-db') }}">Import Excel Into Database</a>
+                    <a class="button" href="{{ url('/clear-db') }}">Clear Database</a>
                 </div>
             </div>
         </div>
