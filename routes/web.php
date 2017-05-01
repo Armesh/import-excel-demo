@@ -75,3 +75,12 @@ Route::get('/clear-db', function () {
 		return redirect('/')->with('success', 'Database cleared. You may click the "Import Excel Into Database" link');
 
 });
+
+Route::get('/download-excel', function () {
+	$file = storage_path().'/mock_data.xlsx';
+    $headers = array('Content-Type: application/pdf');
+
+	return response()->download($file, 'mock_data.xlsx', $headers);
+
+});
+

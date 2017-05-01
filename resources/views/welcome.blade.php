@@ -111,6 +111,7 @@
                 <div class="links">
                     <a class="button" href="{{ url('/excel-into-db') }}">Import Excel Into Database</a>
                     <a class="button" href="{{ url('/clear-db') }}">Clear Database</a>
+                    <a class="button" href="{{ url('/download-excel') }}">Download Excel</a>
                 </div>
             </div>
         </div>
